@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+   <context:component-scan base-package="springass1.onlineshopping" />
+
+   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name="prefix" value="/WEB-INF/jsp/" />
+      <property name="suffix" value=".jsp" />
+   </bean>
+
+   <bean id="productList" class="springass1.onlineshopping.model.ProductListClass">
+            <property name="productlist">
+                  <list>
+                        <ref bean="product1" />
+                        <ref bean="product2" />
+                        <ref bean="product3" />
+<!--                         <ref bean="product4" /> -->
+                  </list>
+            </property>
+      </bean>
+
+      <bean id="product1" class="springass1.onlineshopping.model.ProductDetailsClass">
+            <property name="productname" value="Shirt" />
+            <property name="productprice" value="2000" />
+            <property name="productsize" value="42" />
+            <property name="productcolor" value="Blue" />
+            <property name="productstock" value="5" />
+          
+      </bean>
+
+      <bean id="product2" class="springass1.onlineshopping.model.ProductDetailsClass">
+            <property name="productname" value="Pant" />
+            <property name="productprice" value="4500" />
+            <property name="productsize" value="34" />
+            <property name="productcolor" value="Black" />
+            <property name="productstock" value="5" />
+            
+      </bean>
+
+      <bean id="product3" class="springass1.onlineshopping.model.ProductDetailsClass">
+            <property name="productname" value="Saree" />
+            <property name="productprice" value="5000" />
+            <property name="productsize" value="8" />
+            <property name="productcolor" value="purple" />
+            <property name="productstock" value="6" />
+             
+
+      </bean>
+  <bean id="cart" class="springass1.onlineshopping.helper.CartOperationClass"></bean>
+  <bean id="user" class="springass1.onlineshopping.model.UserDetailsClass"></bean>
+   
+<!--    <bean  id="productlist" class="springass1.onlineshopping.ProductListClass"> -->
+<!--    </bean> -->
+<!--       <bean  id="productdetails" class="springass1.onlineshopping.ProductDetailsClass"> -->
+<!--          <property name="productname"> -->
+<!--           <value>Shirt</value></property> -->
+<!--                    <property name="productcolor"> -->
+<!--           <value>Shirt</value></property> -->
+<!--                    <property name="productsize"> -->
+<!--           <value>Shirt</value></property></bean> -->
+ 
+</beans>
